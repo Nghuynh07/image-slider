@@ -8,14 +8,6 @@ let currentSlide = 1;
 let interval;
 let isPlay = true;
 
-// const showArrows = () => {
-//   if (isPlay) {
-//     Array.from(arrows).forEach((arrow) => {
-//       arrow.style.cssText = "visibility: hidden; opacity: 0";
-//     });
-//   }
-// };
-
 const showControl = () => {
   if (isPlay) {
     control.innerText = "STOP";
@@ -40,6 +32,12 @@ const showSlide = () => {
   });
 };
 
+const arrowSettings = () => {
+  isPlay = false;
+  playSlides();
+  showSlide();
+};
+
 const playSlides = () => {
   if (isPlay) {
     interval = setInterval(() => {
@@ -60,39 +58,15 @@ slideContainer.addEventListener("click", (e) => {
 });
 
 rightArrow.addEventListener("click", (e) => {
-  clearInterval(interval);
   currentSlide++;
-  showSlide();
+  arrowSettings();
 });
 
 leftArrow.addEventListener("click", (e) => {
-  clearInterval(interval);
   currentSlide--;
-  showSlide();
+  arrowSettings();
 });
 
-const allEvents = () => {
-  slideContainer.addEventListener("click", (e) => {
-    if (e.target.classList.contains("control")) {
-      isPlay = !isPlay;
-      playSlides();
-    }
-  });
-
-  rightArrow.addEventListener("click", (e) => {
-    clearInterval(interval);
-    currentSlide++;
-    showSlide();
-  });
-
-  leftArrow.addEventListener("click", (e) => {
-    clearInterval(interval);
-    currentSlide--;
-    showSlide();
-  });
-};
-
-// showArrows();
 showSlide();
 playSlides();
 showSlide();
