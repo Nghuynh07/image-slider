@@ -10,3 +10,6 @@
 - Add keydown event to window object space to pause/play slides, right/left arrow to manually slide each image 
 
 4) Credits: 6 of the images shown here are from unplashed used for eductional purposes.
+<p align='center'>
+  <img src="img-slider.gif">
+</p>
