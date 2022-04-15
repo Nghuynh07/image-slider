@@ -67,6 +67,22 @@ leftArrow.addEventListener("click", (e) => {
   arrowSettings();
 });
 
+window.addEventListener("keydown", function (e) {
+  console.log(e);
+  if (e.code === "Space") {
+    isPlay = !isPlay;
+    playSlides();
+  }
+  if (e.key === "ArrowRight") {
+    currentSlide++;
+    arrowSettings();
+  }
+  if (e.key === "ArrowLeft") {
+    currentSlide--;
+    arrowSettings();
+  }
+});
+
 showSlide();
 playSlides();
 showSlide();
